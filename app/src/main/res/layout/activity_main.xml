@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:toolbarId="@id/my_toolbar"
+            app:collapsedTitleTextAppearance="@android:color/white"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="@color/colorAccent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/bank"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax"
+                android:contentDescription="@string/todo" />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/my_toolbar"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                app:title="Bank App"
+                app:titleTextColor="@android:color/white"
+                app:layout_collapseMode="parallax"
+                />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+    >
+    <include layout="@layout/transaction_layout" android:id="@+id/desc"/>
+    <ListView
+        android:id="@+id/transList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="3dp"
+        android:padding="5dp"
+        android:headerDividersEnabled="false"
+        android:layout_below="@+id/desc"/>
+        </RelativeLayout>
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/colorPrimaryDark"
+        app:fabCradleMargin="8dp"
+        app:fabCradleRoundedCornerRadius="15dp"
+        app:fabCradleVerticalOffset="3dp"
+        app:hideOnScroll="true"
+        app:titleTextColor="@android:color/white"
+        app:fabAlignmentMode="end"
+        app:layout_behavior="com.google.android.material.bottomappbar.BottomAppBar$Behavior"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:id="@+id/bt_toolbar"
+            app:titleTextColor="@android:color/holo_blue_bright"
+            app:navigationIcon="@drawable/ic_round_info_24"
+            />
+    </com.google.android.material.bottomappbar.BottomAppBar>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_add_circle_24"
+        app:backgroundTint="#f0f"
+        app:layout_anchor="@id/bottomAppBar"
+        app:tint="#fff" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
