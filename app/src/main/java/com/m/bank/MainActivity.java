@@ -65,8 +65,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             @Override
             public void onClick(View v) {
 
-                String p = price.getText().toString();
-                String d = date.getText().toString();
+                String p = price.getText().toString().trim();
+                String d = date.getText().toString().trim();
                 if(p.isEmpty()){
                     price.setError("Please Fill Price Field");
                     return;
